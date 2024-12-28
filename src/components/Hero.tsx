@@ -1,22 +1,7 @@
-import React from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, OrbitControls } from '@react-three/drei';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-
-function Text3D({ text, position, color, size }: { text: string; position: [number, number, number]; color: string; size: number }) {
-  // Load the font from the public folder
-  const font = useLoader(FontLoader, '/helvetiker_regular.typeface.json');
-
-  return (
-    <mesh position={position}>
-      <textGeometry args={[text, { font, size, height: 0.5 }]} attach="geometry" />
-      <meshStandardMaterial color={color} attach="material" />
-    </mesh>
-  );
-}
 
 export function Hero() {
   return (
@@ -25,7 +10,7 @@ export function Hero() {
       <Canvas className="absolute inset-0 z-0">
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
-        <Sphere args={[1, 100, 100]} scale={2.5} position={[0, -2, -5]}>
+        <Sphere args={[1, 100, 100]} scale={2.5} position={[0, 0, -3]}>
           <MeshDistortMaterial
             color="#0077FF"
             attach="material"
@@ -33,13 +18,6 @@ export function Hero() {
             speed={2} // animation speed
           />
         </Sphere>
-        {/* 3D Text */}
-        <Text3D
-          text="Creative Developer"
-          position={[0, 1, -3]}
-          color="#FFFFFF"
-          size={0.5}
-        />
         <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
       </Canvas>
 
