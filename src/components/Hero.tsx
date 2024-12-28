@@ -1,17 +1,19 @@
+import React from 'react';
 import { Canvas, useLoader } from '@react-three/fiber';
-import { FontLoader, TextGeometry } from 'three';
 import { Sphere, MeshDistortMaterial, OrbitControls } from '@react-three/drei';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 
-function Text3D({ text, position, color, size }) {
+function Text3D({ text, position, color, size }: { text: string; position: [number, number, number]; color: string; size: number }) {
   // Load the font from the public folder
-  const font = useLoader(FontLoader, '/helvetiker_regular.typeface.json');
+  const font = useLoader(FontLoader, '/fonts/helvetiker_regular.typeface.json');
 
   return (
     <mesh position={position}>
-      <textGeometry args={[text, { font, size, height: 0.5 }]} />
-      <meshStandardMaterial color={color} />
+      <textGeometry args={[text, { font, size, height: 0.5 }]} attach="geometry" />
+      <meshStandardMaterial color={color} attach="material" />
     </mesh>
   );
 }
