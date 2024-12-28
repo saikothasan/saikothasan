@@ -5,6 +5,7 @@ import { Navigation } from './components/Navigation';
 import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
+import { Designer } from './components/sections/Designer';
 import { ScrollProgress } from './components/layout/ScrollProgress';
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
         </Suspense>
         <Hero />
       </section>
+
+      {/* Designer Section */}
+      <Designer />
 
       {/* Content Sections */}
       <About />
