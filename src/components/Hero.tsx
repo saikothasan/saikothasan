@@ -8,7 +8,7 @@ import { Typewriter } from 'react-simple-typewriter';
 
 function Text3D({ text, position, color, size }: { text: string; position: [number, number, number]; color: string; size: number }) {
   // Load the font from the public folder
-  const font = useLoader(FontLoader, '/fonts/helvetiker_regular.typeface.json');
+  const font = useLoader(FontLoader, '/helvetiker_regular.typeface.json');
 
   return (
     <mesh position={position}>
